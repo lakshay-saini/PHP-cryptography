@@ -16,13 +16,13 @@ $signature = base64_encode($hmac);
 
 $encryptedSignature = openssl_encrypt($signature, 'AES-128-CBC', $secret, 0, $IVECTOR). PHP_EOL;
 
-echo "plain data text :  ".$data. PHP_EOL;
+echo "auth_timestamp :  ".$data. PHP_EOL;
 
 echo "key : ".$secret. PHP_EOL;
 
 echo "signature : ".$signature. PHP_EOL;
 
-echo "encrypted signature : ".$encryptedSignature;
+echo "auth_signature : ".$encryptedSignature;
 
 echo "decrypted signature : ".openssl_decrypt($encryptedSignature, 'AES-128-CBC', $secret, 0, $IVECTOR). PHP_EOL;
 
